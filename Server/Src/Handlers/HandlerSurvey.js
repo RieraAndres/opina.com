@@ -1,4 +1,5 @@
 const postSurvey = require("../Controllers/CrudSurvey/PostSurvey");
+const changeSurveyStatus = require("../Controllers/CrudSurvey/changeSurveyStatus");
 
 const handlerPostSurvey = async (req, res) => {
   const { title, description, imgUrl } = req.body;
@@ -23,6 +24,17 @@ const handlerPostSurvey = async (req, res) => {
   }
 };
 
+const handlerChangeSurveyStatus = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const survey = await changeSurveyStatus(id);
+    return res.status(200).json(survey);
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
 module.exports = {
   handlerPostSurvey,
+  handlerChangeSurveyStatus,
 };

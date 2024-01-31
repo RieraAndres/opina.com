@@ -36,8 +36,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 const { User, Survey } = sequelize.models;
 
-User.belongsToMany(Survey, { through: "UserSurvey" });
-Survey.belongsToMany(User, { through: "UserSurvey" });
+User.belongsToMany(Survey, { through: "Responses" });
+Survey.belongsToMany(User, { through: "Responses" });
 
 module.exports = {
   ...sequelize.models,
