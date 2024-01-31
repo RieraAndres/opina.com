@@ -28,9 +28,16 @@ const handlerChangeSurveyStatus = async (req, res) => {
   const { id } = req.body;
   try {
     const survey = await changeSurveyStatus(id);
-    return res.status(200).json(survey);
+    return res.status(200).json({
+      message: "Estado de encuesta actualizado correctamente",
+      survey: survey,
+    });
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    console.error(
+      "Ocurrió un error al cambiar el estado de la encuesta",
+      error
+    );
+    return res.status(500).json({ error: "Error del servidor" });
   }
 };
 
