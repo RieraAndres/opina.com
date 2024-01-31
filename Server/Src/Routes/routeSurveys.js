@@ -3,6 +3,6 @@ const routerForSurveys = Router();
 
 const { handlerPostSurvey } = require("../Handlers/HandlerSurvey");
 
-routerForSurveys.post("/postSurvey", handlerPostSurvey);
+routerForSurveys.post("/", handlerPostSurvey);
 
 module.exports = routerForSurveys;
