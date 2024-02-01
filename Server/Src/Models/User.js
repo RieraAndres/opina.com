@@ -19,16 +19,23 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       dni: {
-        type: DataTypes.INTEGER,
-      },
-      whatsapp: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         allowNull: false,
         unique: true,
+        validate: {
+          isNumeric: true,
+        },
+      },
+      whatsapp: {
+        type: DataTypes.BIGINT,
+        allowNull: false,
+        unique: true,
+        validate: {
+          isNumeric: true,
+        },
       },
     },
     {
-      // Configuración para evitar que Sequelize agregue createdAt y updatedAt
       timestamps: false,
     }
   );

@@ -1,9 +1,8 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
-
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/opina`,
@@ -17,13 +16,13 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
-fs.readdirSync(path.join(__dirname, "models/"))
+fs.readdirSync(path.join(__dirname, "models"))
   .filter(
     (file) =>
       file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
   )
   .forEach((file) => {
-    const model = require(path.join(__dirname, "models/", file));
+    const model = require(path.join(__dirname, "models", file));
     model(sequelize);
   });
 
@@ -34,10 +33,16 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { User, Survey } = sequelize.models;
+const { User, Survey, Response } = sequelize.models;
 
 User.belongsToMany(Survey, { through: "Responses" });
 Survey.belongsToMany(User, { through: "Responses" });
+
+User.hasMany(Response);
+Response.belongsTo(User);
+
+Survey.hasMany(Response);
+Response.belongsTo(Survey);
 
 module.exports = {
   ...sequelize.models,

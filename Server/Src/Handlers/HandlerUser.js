@@ -1,18 +1,18 @@
 const postUser = require("../Controllers/CrudUser/PostUser.js");
 
 const handlerRegisterUser = async (req, res) => {
-  const { id, name, lastName, whatsapp } = req.body;
+  const { name, lastName, dni, whatsapp } = req.body;
   try {
-    if (!id || !name || !lastName || !whatsapp) {
+    if (!name || !lastName || !dni || !whatsapp) {
       return res.status(400).json({
         error:
           "Revise los campos nuevamente y verifique que todo esté correcto",
       });
     } else {
-      const postUserResponse = await postUser(id, name, lastName);
+      const postUserR = await postUser(name, lastName, dni, whatsapp);
 
-      if (postUserResponse.error) {
-        return res.status(409).json({ error: postUserResponse.error }); // 409 Conflict status code for already existing resource
+      if (postUserR.error) {
+        return res.status(409).json({ error: postUser.error }); // 409 Conflict status code for already existing resource
       }
 
       return res.status(201).json({ message: "Usuario creado con éxito" });

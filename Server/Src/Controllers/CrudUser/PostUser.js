@@ -1,10 +1,9 @@
 const { User } = require("../../db.js");
 
-const registerUser = async (id, name, lastName, whatsapp) => {
+const registerUser = async (name, lastName, whatsapp, dni) => {
   try {
-    // Verificar si el usuario ya existe por su dirección de correo electrónico
     const [user, created] = await User.findOrCreate({
-      where: { id },
+      where: { dni },
       defaults: {
         name,
         lastName,
