@@ -16,6 +16,7 @@ const basename = path.basename(__filename);
 
 const modelDefiners = [];
 
+// Cargar todos los modelos definidos en el directorio 'models'
 fs.readdirSync(path.join(__dirname, "models"))
   .filter(
     (file) =>
@@ -26,17 +27,12 @@ fs.readdirSync(path.join(__dirname, "models"))
     model(sequelize);
   });
 
-let entries = Object.entries(sequelize.models);
-let capsEntries = entries.map((entry) => [
-  entry[0][0].toUpperCase() + entry[0].slice(1),
-  entry[1],
-]);
-sequelize.models = Object.fromEntries(capsEntries);
-
+// Obtener los modelos cargados
 const { User, Survey, Response } = sequelize.models;
 
-User.belongsToMany(Survey, { through: "Responses" });
-Survey.belongsToMany(User, { through: "Responses" });
+// Definir las relaciones entre los modelos
+User.belongsToMany(Survey, { through: Response });
+Survey.belongsToMany(User, { through: Response });
 
 User.hasMany(Response);
 Response.belongsTo(User);
@@ -44,6 +40,7 @@ Response.belongsTo(User);
 Survey.hasMany(Response);
 Response.belongsTo(Survey);
 
+// Exportar los modelos y la instancia de Sequelize
 module.exports = {
   ...sequelize.models,
   conn: sequelize,
