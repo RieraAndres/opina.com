@@ -16,7 +16,7 @@ const createSurveyResponse = async (
 
     // Si el usuario no existe, crearlo
     if (!user) {
-      user = await registerUser(name, lastName, whatsapp, dni);
+      user = await registerUser(name, lastName, dni, whatsapp);
     }
 
     // Crear la respuesta asociada a la encuesta y al usuario
