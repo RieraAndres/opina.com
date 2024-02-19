@@ -1,0 +1,75 @@
+.Img{
+    width: 150px;
+}
+
+.imgContainer{
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+}
+
+.Card{
+    width: 60%;
+    display: flex;
+    border: 2px solid rgb(119, 103, 103);
+    border-radius: 5px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 4px;
+}
+@font-face {
+    font-family: 'Jura';
+    src: url('../../Assets/Fonts/Jura-VariableFont_wght.ttf') format('truetype');
+  }
+
+  .textContainer{
+      width: 100%;
+  }
+
+.title{
+    font-size: 22px;
+    text-align: center;
+    margin: 0;
+    font-family: Jura;
+}
+
+.description{
+    font-family: Jura;
+    font-size: 14px;
+}
+
+.cardFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 12.5px 25px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #b33b2b;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    font-size: 12px;
+  }
+
+  .button:hover {
+    background-color: #c24f40;
+    transform: scale(1.1);
+  }
+  
+  .button:active {
+    background-color: #cf3d3d;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+  }
+
+.verMas{
+    color: red;
+    cursor: pointer;
+}
+  
