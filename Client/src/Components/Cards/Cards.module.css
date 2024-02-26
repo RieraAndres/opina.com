@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column; /* Para alinear verticalmente */
+  padding-bottom: 20px;
 }
 
 .title{
@@ -10,4 +11,17 @@
     font-family: Jura;
     font-weight:900;
     font-size: 30px;
+}
+
+.button {
+  padding: 12.5px 25px;
+  border: 0;
+  border-radius: 100px;
+  background-color: #b33b2b;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  font-size: 15px;
+  width: 60%;
 }
