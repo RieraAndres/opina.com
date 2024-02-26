@@ -27,7 +27,10 @@ function Cards() {
     ]
   return (
     <div>
-       { AllSurveys.map((Survey) => <Card Survey={Survey} />)}
+      <p className={styles.title}>Estas son algunas de nuestras iniciativas activas</p>
+      <div className={styles.cardsContainer}>
+        { AllSurveys.map((Survey) => <Card Survey={Survey} />)}
+      </div>
     </div>
   );
 }
