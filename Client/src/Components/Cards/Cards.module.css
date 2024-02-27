@@ -25,3 +25,15 @@
   font-size: 15px;
   width: 60%;
 }
+.button:hover {
+  background-color: #c24f40;
+  transform: scale(1.1);
+}
+
+.button:active {
+  background-color: #cf3d3d;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
