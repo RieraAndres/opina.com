@@ -1,0 +1,30 @@
+.footerContainer{
+    background-color:#333333;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.nav p {
+    color: #FFFFFF;
+    font-family: Jura;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav p:hover{
+    color: #B32F12;
+}
+
+.derechos{
+    display: flex;    
+    justify-content: center;
+}
+
+.derechos p {
+    color: #FFFFFF;
+    font-family: Jura;
+    font-weight: 500;
+}
