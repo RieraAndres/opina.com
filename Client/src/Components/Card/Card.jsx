@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 function Card({ Survey }) {
-  const { title, imgUrl, description } = Survey; // Traigo por props lo que renderizo
+  const { title, imgUrl, description,id } = Survey; // Traigo por props lo que renderizo
   
   // Función para recortar y ajustar la descripción
   const truncateDescription = (text, maxLength) => {
@@ -13,7 +13,7 @@ function Card({ Survey }) {
       return (
         <div>
           {text.slice(0, maxLength)}
-          <span className={styles.verMas}> VER MÁS...</span>
+          <NavLink to={`/detail/${id}`} style={{textDecoration:"none"}}><span className={styles.verMas}> VER MÁS...</span></NavLink>
         </div>
       );
     }
@@ -34,7 +34,7 @@ function Card({ Survey }) {
         </div>
         <div className={styles.cardFooter}>
           <p>88 respuestas</p>
-          <button className={styles.button}>Firme aquí</button>
+          <NavLink to={`/detail/${id}`}><button className={styles.button}>Firme aquí</button></NavLink>
         </div>
       </div>
     </div>
