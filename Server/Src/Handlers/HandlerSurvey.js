@@ -7,7 +7,7 @@ const getSurveyByid = require("../Controllers/CrudSurvey/getSurveyById");
 const handlerPostSurvey = async (req, res) => {
   const { title, description, imgUrl } = req.body;
   try {
-    if (!title || !description || !imgUrl) {
+    if (!title || !description) {
       return res.status(400).json({
         error:
           "Revise los campos nuevamente y verifique que todo esté correcto",
