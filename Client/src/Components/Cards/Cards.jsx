@@ -5,7 +5,6 @@ import styles from "../Cards/Cards.module.css";
 function Cards({surveys}) {
   const [visibleCards, setVisibleCards] = useState(3); // Mostrar inicialmente 4 tarjetas
 
-  console.log(surveys);
   const handleShowMore = () => {
     setVisibleCards(visibleCards + 3); // Mostrar 4 tarjetas adicionales al hacer clic en "Ver más"
   };
