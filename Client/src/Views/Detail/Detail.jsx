@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import DetailComponent from "../../Components/DetailComponent/DetailComponent";
-import { getDetail } from "../../Redux/Actions";
+import { clearDetail, getDetail } from "../../Redux/Actions";
 
 function Detail() {
   const dispatch = useDispatch()
@@ -12,11 +12,13 @@ function Detail() {
 
   useEffect(() => { 
     dispatch(getDetail(id));
-}, [dispatch]);
+    return () => {
+      dispatch(clearDetail());//al desmontar limpio el estado
+    };
+}, [dispatch,id]);
 
 const survey = useSelector((state)=>state.detail)
 
-console.log(survey);
   return (
     <div>
         <Header></Header>

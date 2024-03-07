@@ -1,23 +1,47 @@
 import styles from "./DetailComponent.module.css"
 import { useState } from "react";
-function DetailComponent({survey}) {
-   
-    const [input, setInput] = useState({
-        "name":"",
-        "lastName":"",
-        "dni":"",
-        "whatsapp":"",
-        "surveyId":survey.id
+import { useDispatch } from "react-redux";
+import { postResponse } from "../../Redux/Actions";
+import { useParams } from "react-router-dom";
 
+
+function DetailComponent({survey}) {
+   const dispatch = useDispatch()
+   const { id } = useParams();
+
+   const [input, setInput] = useState({
+       "name":"",
+       "lastName":"",
+       "dni":"",
+       "whatsapp":"",
+       "surveyId":id
     })
-    
+
+    const [errors, setErrors] = useState({})
+    console.log(input);
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+        const updatedValue = name === "dni" || name === "whatsapp" ? parseInt(value) : value; //para que sea numero y no string
         setInput((prevInput) => ({
           ...prevInput,
-          [name]: value,
+          [name]: updatedValue,
         }));
     }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        if(input.name && input.lastName && input.dni && input.whatsapp){
+          dispatch(postResponse(input))
+          setInput({
+            name:"",
+            lastName:"",
+            dni:"",
+            whatsapp:"",
+            surveyId:id
+
+          });
+        }
+      }
   return (
     <div className={styles.detailContainer}>
         <p className={styles.title}>{survey.title}</p>
@@ -40,7 +64,7 @@ function DetailComponent({survey}) {
                     <div>
                         <input name="whatsapp" value={input.whatsapp} placeholder="Cod. Area + Numero" className={styles.input} onChange={handleInputChange}/>
                     </div>
-                    <button><span className={styles.buttonTop}>Enviar</span></button>
+                    <button><span className={styles.buttonTop} onClick={handleSubmit}>Enviar</span></button>
                 </div>
             </div>
             <div className={styles.description}>
