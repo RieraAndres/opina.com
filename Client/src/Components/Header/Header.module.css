@@ -1,11 +1,30 @@
 .headerContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-image: url("../../Assets/Images/Mapa_mundi_blanco.png");
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+.navBar a {
+    font-family: Jura;
+    color: black ;
+    font-weight: 800;
+}
+
+.navBar a :hover{
+    color:#B32F12
+}
+.sloganContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title{
