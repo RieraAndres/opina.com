@@ -41,12 +41,18 @@ export function postResponse({ name, lastName, dni, whatsapp, surveyId }) {
         "http://localhost:3001/response/postResponse",
         { name, lastName, dni, whatsapp, surveyId } // envolver input en un objeto con clave 'data'
       );
+      console.log(response.status);
+      if (response.status === 201 || response.status === 200) {
+        return dispatch({
+          type: "POST_RESPONSE",
+          payload: "Respuesta guardada con exito",
+        });
+      }
+    } catch (error) {
       return dispatch({
         type: "POST_RESPONSE",
-        payload: response.data,
+        payload: "Ya firmaste esta peticion u ocurrio algun error",
       });
-    } catch (error) {
-      return error.message;
     }
   };
 }

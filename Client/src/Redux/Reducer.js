@@ -28,7 +28,7 @@ export default function rootReducer(state = initialState, action) {
     case POST_RESPONSE: {
       return {
         ...state,
-        notification: action.payload.message,
+        notification: action.payload,
       };
     }
 
