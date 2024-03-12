@@ -1,4 +1,5 @@
 import styles from "./DetailComponent.module.css"
+import { validator } from "./Validator";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postResponse } from "../../Redux/Actions";
@@ -18,7 +19,7 @@ function DetailComponent({survey}) {
     })
 
     const [errors, setErrors] = useState({})
-    console.log(input);
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         const updatedValue = name === "dni" || name === "whatsapp" ? parseInt(value) : value; //para que sea numero y no string
@@ -26,6 +27,13 @@ function DetailComponent({survey}) {
           ...prevInput,
           [name]: updatedValue,
         }));
+
+        setErrors(
+          validator({
+            ...input,
+            [e.target.name]: e.target.value
+          })
+        );
     }
 
     const handleSubmit = (e) =>{
@@ -52,18 +60,22 @@ function DetailComponent({survey}) {
                     <div>
                         <input name="name" value={input.name} className={styles.input} onChange={handleInputChange}/>
                      </div>
+                        {errors.name && <label className={styles.error}>{errors.name}</label>}
                     <label className={styles.label}>Apellido</label>
                     <div>
                         <input name="lastName" value={input.lastName} className={styles.input} onChange={handleInputChange}/>
                      </div>
+                        {errors.lastName && <label className={styles.error}>{errors.lastName}</label>}
                     <label className={styles.label}>DNI</label>
                     <div>
                         <input name="dni" value={input.dni} className={styles.input} onChange={handleInputChange}/>
                      </div>
+                        {errors.dni && <label className={styles.error}>{errors.dni}</label>}
                     <label className={styles.label}>Telefono</label>
                     <div>
-                        <input name="whatsapp" value={input.whatsapp} placeholder="Cod. Area + Numero" className={styles.input} onChange={handleInputChange}/>
+                        <input name="whatsapp" type="number" value={input.whatsapp} placeholder="Cod.Area + Numero sin 15" className={styles.input} onChange={handleInputChange}/>
                     </div>
+                    {errors.whatsapp && <label className={styles.error}>{errors.whatsapp}</label>}
                     <button><span className={styles.buttonTop} onClick={handleSubmit}>Enviar</span></button>
                 </div>
             </div>

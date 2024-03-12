@@ -84,3 +84,8 @@
     /* Push the button downwards when pressed */
     transform: translateY(0);
   }
+
+
+  .error{
+    color: red;
+  }
