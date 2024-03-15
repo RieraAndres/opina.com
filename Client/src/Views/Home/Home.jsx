@@ -11,7 +11,7 @@ function Home() {
 
   useEffect(() => { 
     dispatch(getSurveys());
-}, [dispatch]);
+}, []);
 
   const surveys = useSelector((state)=>state.allSurveys)
   return (
