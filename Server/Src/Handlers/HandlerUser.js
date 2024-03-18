@@ -1,4 +1,6 @@
 const postUser = require("../Controllers/CrudUser/PostUser.js");
+const SendAndSaveCode = require("../Controllers/CrudUser/TwoStepVerification/SendAndSaveCode.js");
+const verifyUserCode = require("../Controllers/CrudUser/TwoStepVerification/VerifyEmailCode.js");
 
 const handlerRegisterUser = async (req, res) => {
   const { name, lastName, dni, whatsapp } = req.body;
@@ -23,6 +25,51 @@ const handlerRegisterUser = async (req, res) => {
   }
 };
 
+const generateRandom4DigitNumber = () => {
+  const min = 1000;
+  const max = 9999;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const handlerSendEmailCode = async (req, res) => {
+  const generatedCode = generateRandom4DigitNumber();
+  try {
+    await SendAndSaveCode(generatedCode); // Pasar el código generado como parámetro
+    return res.status(200).send("Correo enviado y código guardado con éxito");
+  } catch (error) {
+    console.error("Error al verificar el codigo:", error);
+    return res.status(500).send("Error al verificar el codigo");
+  }
+};
+
+const handlerVerifyCode = async (req, res) => {
+  const { userCode } = req.body;
+
+  // Verifica si el código ingresado por el usuario está presente y es válido
+  if (!userCode) {
+    return res.status(400).json({
+      error: "Por favor, ingrese un código de verificación válido.",
+    });
+  }
+
+  try {
+    const isValidCode = await verifyUserCode(userCode);
+
+    if (isValidCode) {
+      // El código de verificación es válido
+      return res.status(200).json({ valid: true });
+    } else {
+      // El código de verificación es inválido
+      return res.status(400).json({ valid: false });
+    }
+  } catch (error) {
+    console.error("Error al verificar el código:", error);
+    return res.status(500).json({ error: "Error al verificar el código." });
+  }
+};
+
 module.exports = {
   handlerRegisterUser,
+  handlerSendEmailCode,
+  handlerVerifyCode,
 };
