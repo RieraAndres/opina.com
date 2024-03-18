@@ -15,7 +15,7 @@ function Detail() {
     return () => {
       dispatch(clearDetail());//al desmontar limpio el estado
     };
-}, []);
+}, [dispatch,id]);
 
 const survey = useSelector((state)=>state.detail)
 
