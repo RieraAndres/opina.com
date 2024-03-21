@@ -3,6 +3,9 @@ import "./App.css";
 import Home from "./Views/Home/Home";
 import About from "./Views/About/About";
 import Detail from "./Views/Detail/Detail";
+import Login from "./Views/Login/Login";
+import Admin from "./Views/Admin/Admin";
+
 function App() {
   return (
     <div>
@@ -10,6 +13,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />}></Route>
+        <Route path="/adminlogin" element={<Login />}></Route>
+        <Route path="/admin" element={<Admin />}></Route>
       </Routes>
     </div>
   );

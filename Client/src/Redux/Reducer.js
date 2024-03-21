@@ -4,12 +4,15 @@ import {
   GET_DETAIL,
   GET_SURVEYS,
   POST_RESPONSE,
+  POSITIVE_CODE_VERIFICATION,
+  NEGATIVE_CODE_VERIFICATION,
 } from "./Actions";
 
 let initialState = {
   allSurveys: [],
   detail: {},
   notification: "",
+  adminLogin: false,
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -29,6 +32,20 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         notification: action.payload,
+      };
+    }
+
+    case POSITIVE_CODE_VERIFICATION: {
+      return {
+        ...state,
+        adminLogin: true,
+      };
+    }
+
+    case NEGATIVE_CODE_VERIFICATION: {
+      return {
+        ...state,
+        notification: "Codigo incorrecto intentalo nuevamente",
       };
     }
 
