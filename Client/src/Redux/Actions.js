@@ -8,6 +8,7 @@ export const CLEAR_NOTIFICATIONS = "CLEAR_NOTIFICATIONS";
 export const SEND_CODE = "SEND_CODE";
 export const POSITIVE_CODE_VERIFICATION = "POSITIVE_CODE_VERIFICATION";
 export const NEGATIVE_CODE_VERIFICATION = "NEGATIVE_CODE_VERIFICATION";
+export const CHANGE_SURVEY_STATUS = "CHANGE_SURVEY_STATUS";
 
 export function getSurveys() {
   return async function (dispatch) {
@@ -86,6 +87,18 @@ export function verifyCode(userCode) {
           payload: response.data.valid,
         });
       }
+    } catch (error) {
+      return error.message;
+    }
+  };
+}
+
+export function changeSurveyStatus(id) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.put("http://localhost:3001/survey/status", {
+        id,
+      });
     } catch (error) {
       return error.message;
     }
