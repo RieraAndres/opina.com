@@ -37,8 +37,8 @@ const handlerSendEmailCode = async (req, res) => {
     await SendAndSaveCode(generatedCode); // Pasar el código generado como parámetro
     return res.status(200).send("Correo enviado y código guardado con éxito");
   } catch (error) {
-    console.error("Error al verificar el codigo:", error);
-    return res.status(500).send("Error al verificar el codigo");
+    console.error("Error al enviar el codigo:", error);
+    return res.status(500).send("Error al enviar el codigo");
   }
 };
 
