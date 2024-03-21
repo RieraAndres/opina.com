@@ -13,7 +13,8 @@ function Home() {
     dispatch(getSurveys());
 }, [dispatch]);
 
-  const surveys = useSelector((state)=>state.allSurveys)
+const surveys = useSelector((state) => state.allSurveys.filter(survey => survey.status === true));
+
   return (
     <div>
       <Header></Header>
