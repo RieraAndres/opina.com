@@ -1,6 +1,7 @@
 const postUser = require("../Controllers/CrudUser/PostUser.js");
 const SendAndSaveCode = require("../Controllers/CrudUser/TwoStepVerification/SendAndSaveCode.js");
 const verifyUserCode = require("../Controllers/CrudUser/TwoStepVerification/VerifyEmailCode.js");
+const getAllUsers = require("../Controllers/CrudUser/getAllUsers.js");
 
 const handlerRegisterUser = async (req, res) => {
   const { name, lastName, dni, whatsapp } = req.body;
@@ -68,8 +69,19 @@ const handlerVerifyCode = async (req, res) => {
   }
 };
 
+const handleGetAllUsers = async (req, res) => {
+  try {
+    const response = await getAllUsers();
+    return res.status(201).json(response);
+  } catch (error) {
+    console.error("Ocurrió un error al cargar los usuaraios", error);
+    return res.status(500).json({ error: "Error de servidor" });
+  }
+};
+
 module.exports = {
   handlerRegisterUser,
   handlerSendEmailCode,
   handlerVerifyCode,
+  handleGetAllUsers,
 };
