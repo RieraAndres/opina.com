@@ -5,6 +5,7 @@ import About from "./Views/About/About";
 import Detail from "./Views/Detail/Detail";
 import Login from "./Views/Login/Login";
 import Admin from "./Views/Admin/Admin";
+import AdminDetail from "./Views/AdminDetail/AdminDetail";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/detail/:id" element={<Detail />}></Route>
         <Route path="/adminlogin" element={<Login />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
+        <Route path="/admin/:surveyId" element={<AdminDetail />}></Route>
       </Routes>
     </div>
   );

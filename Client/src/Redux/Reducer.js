@@ -6,10 +6,13 @@ import {
   POST_RESPONSE,
   POSITIVE_CODE_VERIFICATION,
   NEGATIVE_CODE_VERIFICATION,
+  GET_SURVEY_RESPONSES,
+  CLEAR_RESPONSES,
 } from "./Actions";
 
 let initialState = {
   allSurveys: [],
+  responses: [],
   detail: {},
   notification: "",
   adminLogin: false,
@@ -49,6 +52,14 @@ export default function rootReducer(state = initialState, action) {
       };
     }
 
+    case GET_SURVEY_RESPONSES: {
+      console.log(action.payload);
+      return {
+        ...state,
+        responses: action.payload,
+      };
+    }
+
     case CLEAR_DETAIL: {
       return {
         ...state,
@@ -60,6 +71,13 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         notification: "",
+      };
+    }
+
+    case CLEAR_RESPONSES: {
+      return {
+        ...state,
+        responses: [],
       };
     }
 

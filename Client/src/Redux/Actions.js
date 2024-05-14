@@ -5,10 +5,12 @@ export const GET_DETAIL = "GET_DETAIL";
 export const POST_RESPONSE = "POST_RESPONSE";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const CLEAR_NOTIFICATIONS = "CLEAR_NOTIFICATIONS";
+export const CLEAR_RESPONSES = "CLEAR_RESPONSES";
 export const SEND_CODE = "SEND_CODE";
 export const POSITIVE_CODE_VERIFICATION = "POSITIVE_CODE_VERIFICATION";
 export const NEGATIVE_CODE_VERIFICATION = "NEGATIVE_CODE_VERIFICATION";
 export const CHANGE_SURVEY_STATUS = "CHANGE_SURVEY_STATUS";
+export const GET_SURVEY_RESPONSES = "GET_RESPONSES";
 
 export function getSurveys() {
   return async function (dispatch) {
@@ -105,6 +107,22 @@ export function changeSurveyStatus(id) {
   };
 }
 
+export function getSurveyResponses(surveyId) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/survey/responses/${surveyId}`
+      );
+      return dispatch({
+        type: "GET_SURVEY_RESPONSES",
+        payload: response.data,
+      });
+    } catch (error) {
+      return error.message;
+    }
+  };
+}
+
 export function clearDetail() {
   return {
     type: "CLEAR_DETAIL",
@@ -114,5 +132,11 @@ export function clearDetail() {
 export function clearNotifications() {
   return {
     type: "CLEAR_NOTIFICATIONS",
+  };
+}
+
+export function clearResponses() {
+  return {
+    type: "CLEAR_RESPONSES",
   };
 }
