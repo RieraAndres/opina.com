@@ -3,7 +3,7 @@ import styles from "./ResponsesTable.module.css"
 function ResponsesTable({responses}) {
     return (
      <div className={styles.tableContainer}>
-        <p></p>
+        <p>ESTAS SON LAS RESPUESTAS DE LA ENCUESTA</p>
        <table className={styles.table}>
                 <thead>
                     <tr>

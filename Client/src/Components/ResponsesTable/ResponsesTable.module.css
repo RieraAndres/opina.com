@@ -1,9 +1,9 @@
 .tableContainer{
+    margin: 20px 0 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Jura;
-    margin-bottom: 20px;
 }
 .table{
     border-collapse: collapse;
