@@ -7,10 +7,11 @@
 }
 
 .title{
-    margin-left: 16.5%;
     font-family: Jura;
     font-weight:900;
     font-size: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 .button {
