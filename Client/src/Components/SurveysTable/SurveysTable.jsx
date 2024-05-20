@@ -32,7 +32,7 @@ function SurveysTable({surveys,changeLocalStatus}) {
                         <tr key={survey.id}>
                             <td className={styles.celda}>{survey.id}</td>
                             <td className={styles.celda}>{survey.title}</td>
-                            <td className={styles.celda}>{survey.status ? "Activa" : "Inactiva"}</td>
+                            <td className={styles.celda} style={{color: "red" , fontWeight:"bold"}}>{survey.status ? "Activa" : "Inactiva"}</td>
                             <td className={styles.celda}>{survey.responseCount}</td>
                             <td className={styles.celda}><button className={styles.button} onClick={() => handleUpdateStatus(survey.id)}>Cambiar</button></td>
                             <td className={styles.celda}><NavLink to={`/admin/${survey.id}`}><button className={styles.button}>Ver</button></NavLink></td>
