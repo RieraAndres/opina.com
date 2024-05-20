@@ -11,6 +11,7 @@ export const POSITIVE_CODE_VERIFICATION = "POSITIVE_CODE_VERIFICATION";
 export const NEGATIVE_CODE_VERIFICATION = "NEGATIVE_CODE_VERIFICATION";
 export const CHANGE_SURVEY_STATUS = "CHANGE_SURVEY_STATUS";
 export const GET_SURVEY_RESPONSES = "GET_RESPONSES";
+export const GET_DATABASE = "GET_DATABASE";
 
 export function getSurveys() {
   return async function (dispatch) {
@@ -115,6 +116,20 @@ export function getSurveyResponses(surveyId) {
       );
       return dispatch({
         type: "GET_SURVEY_RESPONSES",
+        payload: response.data,
+      });
+    } catch (error) {
+      return error.message;
+    }
+  };
+}
+
+export function getDataBase() {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get("http://localhost:3001/user/getAll");
+      return dispatch({
+        type: "GET_DATABASE",
         payload: response.data,
       });
     } catch (error) {

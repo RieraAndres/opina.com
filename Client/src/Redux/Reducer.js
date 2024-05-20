@@ -8,6 +8,7 @@ import {
   NEGATIVE_CODE_VERIFICATION,
   GET_SURVEY_RESPONSES,
   CLEAR_RESPONSES,
+  GET_DATABASE,
 } from "./Actions";
 
 let initialState = {
@@ -16,6 +17,7 @@ let initialState = {
   detail: {},
   notification: "",
   adminLogin: false,
+  dataBase: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -53,10 +55,16 @@ export default function rootReducer(state = initialState, action) {
     }
 
     case GET_SURVEY_RESPONSES: {
-      console.log(action.payload);
       return {
         ...state,
         responses: action.payload,
+      };
+    }
+
+    case GET_DATABASE: {
+      return {
+        ...state,
+        dataBase: action.payload,
       };
     }
 
