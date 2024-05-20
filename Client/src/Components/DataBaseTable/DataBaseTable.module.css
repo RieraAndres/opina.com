@@ -1,0 +1,47 @@
+.tableContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Jura;
+    margin-bottom: 20px;
+}
+
+.table{
+    border-collapse: collapse;
+    width: 90%;
+    border: 2px solid rgb(22, 19, 19) ;
+    text-align: center;
+}
+
+.celda{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.title{
+    font-family: Jura;
+    font-weight:900;
+    font-size: 30px;
+}
+
+.button{
+    background-color: rgb(61, 158, 82);
+}
+
+.download {
+    font-family: monospace;
+    font-size: 1rem;
+    color: #FAFAFA;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #FAFAFA;
+    background: #b6b3b3;
+    box-shadow: 3px 3px #fafafa;
+    cursor: pointer;
+  }
+  
+  .download:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+  }
