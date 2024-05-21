@@ -47,3 +47,22 @@
     border: 1px solid black;
     padding: 5px;
 }
+
+
+.download {
+  font-family: monospace;
+  font-size: 1rem;
+  color: #FAFAFA;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #FAFAFA;
+  background: #b6b3b3;
+  box-shadow: 3px 3px #fafafa;
+  cursor: pointer;
+}
+
+.download:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
