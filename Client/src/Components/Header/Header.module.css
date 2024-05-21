@@ -32,11 +32,12 @@
     color:#B32F12;
     font-weight:bolder;
     font-size: 30px;
-    margin: 10px;
+    margin: 5px 0 0 0;
 }
 
 .number{
     font-family: Jura;
     font-size: 18px;
     font-weight: 700;
+    margin: 0;
 }
