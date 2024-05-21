@@ -24,7 +24,7 @@ async function getSurveyResponses(surveyId) {
 
     return {
       title: survey.title,
-      responses: responsesWithUsers,
+      users: responsesWithUsers,
     };
   } catch (error) {
     throw error; // No necesitas lanzar un nuevo error aquí
