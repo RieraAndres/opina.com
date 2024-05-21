@@ -22,7 +22,10 @@ async function getSurveyResponses(surveyId) {
       whatsapp: response.User.whatsapp,
     }));
 
-    return responsesWithUsers;
+    return {
+      title: survey.title,
+      responses: responsesWithUsers,
+    };
   } catch (error) {
     throw error; // No necesitas lanzar un nuevo error aquí
   }
