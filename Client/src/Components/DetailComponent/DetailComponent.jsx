@@ -95,7 +95,7 @@ function DetailComponent({survey}) {
         </div>
       </div>
       <div className={styles.description}>
-        <p>¿Por dejar tu firma?</p>
+        <p className={styles.pq}>¿Por dejar tu firma?</p>
         <p>{survey.description}</p>
       </div>
     </div>

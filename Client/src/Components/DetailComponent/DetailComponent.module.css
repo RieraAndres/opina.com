@@ -8,6 +8,7 @@
     font-family: Jura;
     font-size: 25px;
     font-weight: bolder;
+    text-transform: uppercase;
 }
 .img{
     width: 65vh;
@@ -88,4 +89,10 @@
 
   .error{
     color: red;
+  }
+
+
+  .pq{
+    font-size: 22px;
+    font-weight: bold;
   }
