@@ -1,9 +1,9 @@
 import styles from "../Card/Card.module.css";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 
 function Card({ Survey }) {
-  const { title, imgUrl, description,id } = Survey; // Traigo por props lo que renderizo
+  console.log(Survey);
+  const { title, imgUrl, description,id,responseCount } = Survey; // Traigo por props lo que renderizo
   
   // Función para recortar y ajustar la descripción
   const truncateDescription = (text, maxLength) => {
@@ -20,7 +20,7 @@ function Card({ Survey }) {
   };
 
   // Truncar la descripción si excede los 337 caracteres
-  const truncatedDescription = truncateDescription(description, 300);
+  const truncatedDescription = truncateDescription(description, 250);
   
   return (
     <div className={styles.Card}> {/* Div contenedor de toda la Card */}
@@ -30,10 +30,10 @@ function Card({ Survey }) {
       <div>
         <div className={styles.textContainer}>
           <p className={styles.title}>{title}</p>
-          <div className={styles.description}>{truncatedDescription}</div>
+          <p className={styles.description}>{truncatedDescription}</p>
         </div>
         <div className={styles.cardFooter}>
-          <p>88 respuestas</p>
+          <p>{responseCount} personas que apoyan</p>
           <NavLink to={`/detail/${id}`}><button className={styles.button}>Firme aquí</button></NavLink>
         </div>
       </div>
