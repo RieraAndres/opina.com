@@ -20,6 +20,7 @@ async function getAllSurveys() {
           ],
         ],
       },
+      order: [["createdAt", "DESC"]], // Ordenar por fecha de creación en orden descendente
     });
 
     if (!allSurveys) {
