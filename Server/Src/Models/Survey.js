@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
     },
     {
       // Configuración para evitar que Sequelize agregue createdAt y updatedAt
-      timestamps: false,
+      timestamps: true,
     }
   );
   return Survey;

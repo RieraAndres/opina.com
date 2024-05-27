@@ -32,7 +32,8 @@ async function getAllSurveys() {
       description: survey.description,
       imgUrl: survey.imgUrl,
       status: survey.status,
-      responseCount: survey.dataValues.responseCount, // Agregar el número de respuestas asociadas
+      createdAt: survey.createdAt, // Incluir la fecha de creación
+      responseCount: survey.dataValues.responseCount,
     }));
   } catch (error) {
     throw error;
