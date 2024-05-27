@@ -23,7 +23,7 @@ function CreateComponent() {
         if (notification) {
           toast.info(notification, {
             position: "top-center",
-            autoClose: 2000,
+            autoClose: 1000,
             onClose:()=>{
               dispatch(clearNotifications())
             }

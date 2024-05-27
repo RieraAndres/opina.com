@@ -11,7 +11,8 @@
     text-transform: uppercase;
 }
 .img{
-    width: 65vh;
+    width: 350px;
+    height: 350px;
     border-radius: 10px;
 }
 
