@@ -5,6 +5,8 @@ import { validate } from "./FormValidator";
 import { clearNotifications, postSurvey } from "../../Redux/Actions";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
+import { NavLink } from "react-router-dom";
+
 
 
 function CreateComponent() {
@@ -90,33 +92,39 @@ function CreateComponent() {
     console.log(input);
 
     return (
-        <div className={styles.formContainer}>
-            {(<ToastContainer />)}
-            <p className={styles.title}>CREA TU ENCUESTA</p>
-            <input
-                placeholder="Título..."
-                type="text"
-                name="title"
-                value={input.title}
-                onChange={handleInputChange}
-                className={styles.input}
-            />
-            {error.title && <label className={styles.error}>{error.title}</label>}
-            <textarea
-                placeholder="Descripción..."
-                name="description"
-                value={input.description}
-                onChange={handleInputChange}
-                className={styles.textArea}
-            ></textarea>
-            {error.description && <label className={styles.error}>{error.description}</label>}
-            <label className={styles.label}>Selecciona la portada de tu encuesta</label>
-            <input type="file" accept="image/*" onChange={getCloudinaryUrl}  ref={fileInputRef}  />
-            <button className={styles.Btn} onClick={handleSubmit}>
-                <div className={styles.sign}>+</div>
-                <div className={styles.text}>CREAR</div>
-            </button>
+        <div>
+            <div>
+             <NavLink to="/admin"><button className={styles.button}>VOLVER</button></NavLink>  
+            </div>
+            <div className={styles.formContainer}>
+                {(<ToastContainer />)}
+                <p className={styles.title}>CREA TU ENCUESTA</p>
+                <input
+                    placeholder="Título..."
+                    type="text"
+                    name="title"
+                    value={input.title}
+                    onChange={handleInputChange}
+                    className={styles.input}
+                />
+                {error.title && <label className={styles.error}>{error.title}</label>}
+                <textarea
+                    placeholder="Descripción..."
+                    name="description"
+                    value={input.description}
+                    onChange={handleInputChange}
+                    className={styles.textArea}
+                ></textarea>
+                {error.description && <label className={styles.error}>{error.description}</label>}
+                <label className={styles.label}>Selecciona la portada de tu encuesta</label>
+                <input type="file" accept="image/*" onChange={getCloudinaryUrl}  ref={fileInputRef}  />
+                <button className={styles.Btn} onClick={handleSubmit}>
+                    <div className={styles.sign}>+</div>
+                    <div className={styles.text}>CREAR</div>
+                </button>
+            </div>
         </div>
+        
     );
 }
 
