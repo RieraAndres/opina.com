@@ -11,6 +11,7 @@ import {
   GET_DATABASE,
   POST_SURVEY,
   CLOSE_SESSION,
+  DELETE_SURVEY,
 } from "./Actions";
 
 let initialState = {
@@ -81,6 +82,13 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         adminLogin: false,
+      };
+    }
+
+    case DELETE_SURVEY: {
+      return {
+        ...state,
+        notification: action.payload,
       };
     }
 

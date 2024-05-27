@@ -14,6 +14,7 @@ export const GET_SURVEY_RESPONSES = "GET_RESPONSES";
 export const GET_DATABASE = "GET_DATABASE";
 export const POST_SURVEY = "POST_SURVEY";
 export const CLOSE_SESSION = "CLOSE_SESSION";
+export const DELETE_SURVEY = "DELETE_SURVEY";
 
 export function getSurveys() {
   return async function (dispatch) {
@@ -158,11 +159,28 @@ export function postSurvey(title, description, imgUrl) {
   };
 }
 
+export function deleteSurvey(surveyId) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3001/survey/delete/${surveyId}`
+      );
+      return dispatch({
+        type: "DELETE_SURVEY",
+        payload: response.data,
+      });
+    } catch (error) {
+      return error.message;
+    }
+  };
+}
+
 export function closeSession() {
   return {
     type: "CLOSE_SESSION",
   };
 }
+
 export function clearDetail() {
   return {
     type: "CLEAR_DETAIL",
