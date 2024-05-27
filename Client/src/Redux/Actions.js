@@ -13,6 +13,7 @@ export const CHANGE_SURVEY_STATUS = "CHANGE_SURVEY_STATUS";
 export const GET_SURVEY_RESPONSES = "GET_RESPONSES";
 export const GET_DATABASE = "GET_DATABASE";
 export const POST_SURVEY = "POST_SURVEY";
+export const CLOSE_SESSION = "CLOSE_SESSION";
 
 export function getSurveys() {
   return async function (dispatch) {
@@ -154,6 +155,12 @@ export function postSurvey(title, description, imgUrl) {
     } catch (error) {
       return error.message;
     }
+  };
+}
+
+export function closeSession() {
+  return {
+    type: "CLOSE_SESSION",
   };
 }
 export function clearDetail() {

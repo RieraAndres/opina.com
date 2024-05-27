@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import SurveysTable from "../../Components/SurveysTable/SurveysTable";
-import { getDataBase, getSurveys } from "../../Redux/Actions";
+import { closeSession, getDataBase, getSurveys } from "../../Redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import DataBaseTable from "../../Components/DataBaseTable/DataBaseTable";
 import styles from "./Admin.module.css"
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Admin() {
+    const navigate = useNavigate()
     const dispatch = useDispatch();
     const [surveys, setSurveys] = useState([]);
     const [showSurveys, setShowSurveys] = useState(true);
@@ -36,9 +38,16 @@ function Admin() {
         setShowSurveys(prevShowSurveys => !prevShowSurveys);
     };
 
+    const handleCloseSession = (e)=>{
+        e.preventDefault()
+        dispatch(closeSession())
+        navigate("/")
+    }
+
     return (
         <div>
             <Header />
+            <button className={styles.cerrar} onClick={handleCloseSession}>Cerrar sesión</button>
             {showSurveys ? (
                 <SurveysTable surveys={surveys} changeLocalStatus={changeLocalStatus} />
                 ) : (

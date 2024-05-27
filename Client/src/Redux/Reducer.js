@@ -10,6 +10,7 @@ import {
   CLEAR_RESPONSES,
   GET_DATABASE,
   POST_SURVEY,
+  CLOSE_SESSION,
 } from "./Actions";
 
 let initialState = {
@@ -73,6 +74,13 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         notification: action.payload.message,
+      };
+    }
+
+    case CLOSE_SESSION: {
+      return {
+        ...state,
+        adminLogin: false,
       };
     }
 

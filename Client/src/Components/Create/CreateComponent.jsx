@@ -89,7 +89,6 @@ function CreateComponent() {
         }
     };
 
-    console.log(input);
 
     return (
         <div>
