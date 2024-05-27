@@ -6,6 +6,7 @@ import Detail from "./Views/Detail/Detail";
 import Login from "./Views/Login/Login";
 import Admin from "./Views/Admin/Admin";
 import AdminDetail from "./Views/AdminDetail/AdminDetail";
+import Create from "./Views/Create/Create";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/adminlogin" element={<Login />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/admin/:surveyId" element={<AdminDetail />}></Route>
+        <Route path="/admin/create" element={<Create />}></Route>
       </Routes>
     </div>
   );

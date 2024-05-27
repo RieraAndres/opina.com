@@ -1,7 +1,6 @@
 
 .Allbutton {
     color: rgb(124, 52, 34);
-    margin-left: 5%;
     background: #b6b3b3;
     border: none;
     padding: 10px 20px;
@@ -41,3 +40,9 @@
     right: 0;
     opacity: 1;
   }
+
+.buttonsContainer{
+  margin: 0 5% 0 5% ;
+  display: flex;
+  justify-content: space-between;
+}

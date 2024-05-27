@@ -12,6 +12,7 @@ export const NEGATIVE_CODE_VERIFICATION = "NEGATIVE_CODE_VERIFICATION";
 export const CHANGE_SURVEY_STATUS = "CHANGE_SURVEY_STATUS";
 export const GET_SURVEY_RESPONSES = "GET_RESPONSES";
 export const GET_DATABASE = "GET_DATABASE";
+export const POST_SURVEY = "POST_SURVEY";
 
 export function getSurveys() {
   return async function (dispatch) {
@@ -138,6 +139,23 @@ export function getDataBase() {
   };
 }
 
+export function postSurvey(title, description, imgUrl) {
+  return async function (dispatch) {
+    try {
+      const response = await axios.post("http://localhost:3001/survey", {
+        title,
+        description,
+        imgUrl,
+      });
+      return dispatch({
+        type: "POST_SURVEY",
+        payload: response.data,
+      });
+    } catch (error) {
+      return error.message;
+    }
+  };
+}
 export function clearDetail() {
   return {
     type: "CLEAR_DETAIL",

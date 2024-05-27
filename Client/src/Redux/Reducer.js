@@ -9,6 +9,7 @@ import {
   GET_SURVEY_RESPONSES,
   CLEAR_RESPONSES,
   GET_DATABASE,
+  POST_SURVEY,
 } from "./Actions";
 
 let initialState = {
@@ -65,6 +66,13 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         dataBase: action.payload,
+      };
+    }
+
+    case POST_SURVEY: {
+      return {
+        ...state,
+        notification: action.payload.message,
       };
     }
 

@@ -6,6 +6,7 @@ import { getDataBase, getSurveys } from "../../Redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import DataBaseTable from "../../Components/DataBaseTable/DataBaseTable";
 import styles from "./Admin.module.css"
+import { NavLink } from "react-router-dom";
 
 function Admin() {
     const dispatch = useDispatch();
@@ -43,7 +44,10 @@ function Admin() {
                 ) : (
                     <DataBaseTable dataBase={dataBase} />
                     )}
-            <button className={styles.Allbutton} onClick={toggleView}><span className={styles.span}>{showSurveys ? "Mostrar Base de Datos" : "Mostrar Encuestas"}</span></button>
+            <div className={styles.buttonsContainer}>
+                <button className={styles.Allbutton} onClick={toggleView}><span className={styles.span}>{showSurveys ? "Mostrar Base de Datos" : "Mostrar Encuestas"}</span></button>  
+                <NavLink to="/admin/create"><button className={styles.Allbutton}><span className={styles.span}>CREAR ENCUESTA</span></button></NavLink>
+            </div>
             <Footer />
         </div>
     );
