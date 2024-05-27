@@ -7,8 +7,11 @@ import Login from "./Views/Login/Login";
 import Admin from "./Views/Admin/Admin";
 import AdminDetail from "./Views/AdminDetail/AdminDetail";
 import Create from "./Views/Create/Create";
+import { useSelector } from "react-redux";
 
 function App() {
+  const adminLogin = useSelector((state) => state.adminLogin);
+
   return (
     <div>
       <Routes>
@@ -16,9 +19,13 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />}></Route>
         <Route path="/adminlogin" element={<Login />}></Route>
-        <Route path="/admin" element={<Admin />}></Route>
-        <Route path="/admin/:surveyId" element={<AdminDetail />}></Route>
-        <Route path="/admin/create" element={<Create />}></Route>
+        {adminLogin ? (
+          <>
+            <Route path="/admin" element={<Admin />}></Route>
+            <Route path="/admin/:surveyId" element={<AdminDetail />}></Route>
+            <Route path="/admin/create" element={<Create />}></Route>
+          </>
+        ) : null}
       </Routes>
     </div>
   );
