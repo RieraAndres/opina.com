@@ -3,6 +3,7 @@ const changeSurveyStatus = require("../Controllers/CrudSurvey/changeSurveyStatus
 const getSurveyResponses = require("../Controllers/CrudSurvey/getSurveyResponses");
 const getAllSurveys = require("../Controllers/CrudSurvey/getAllSurveys");
 const getSurveyByid = require("../Controllers/CrudSurvey/getSurveyById");
+const deleteSurvey = require("../Controllers/CrudSurvey/deleteSurvey");
 
 const handlerPostSurvey = async (req, res) => {
   const { title, description, imgUrl } = req.body;
@@ -83,10 +84,22 @@ const handlerGetSurveyById = async (req, res) => {
   }
 };
 
+const handlerDeleteSurvey = async (req, res) => {
+  const surveyId = req.params;
+  try {
+    const survey = await deleteSurvey(surveyId);
+    return res.status(200).json(survey);
+  } catch (error) {
+    console.error("Ocurrió un error al cargar la encuesta", error);
+    return res.status(500).json({ error: "Error de servidor" });
+  }
+};
+
 module.exports = {
   handlerPostSurvey,
   handlerChangeSurveyStatus,
   handlerGetSurveyResponses,
   handlerGetAllSurveys,
   handlerGetSurveyById,
+  handlerDeleteSurvey,
 };
