@@ -93,3 +93,73 @@
     cursor: pointer;
 }
   
+
+@media (max-width: 690px) {
+    .title{
+      font-size: 20px;
+    }
+  }
+
+
+  @media (max-width: 650px) {
+  
+.description{
+    font-size: 14px;
+}
+  }
+
+
+  @media (max-width: 600px) {
+  
+    .Img{
+        width: 160px;
+        height: 160px;
+    }
+      }
+
+      @media (max-width: 550px) {
+        .cardFooter p{
+            display: none;
+        }
+
+        .title{
+            font-size: 18px;
+          }
+
+          .description{
+            font-size: 12px;
+        }
+          }
+
+
+          @media (max-width: 500px) {
+            .Card{
+                align-items: center;
+                flex-direction: column;
+            }
+            .title{
+                order: 1;
+            }
+            .description{
+                margin: 0;
+                order: 3;
+            }
+            .imgContainer{
+                order: 0;
+            }
+            .cardFooter{
+                order: 4;
+            }
+            .Img{
+                width: 220px;
+                height: 180px;
+            }
+            .button {
+                padding: 10px 20px;
+                font-size: 10px;
+                margin: 0;
+              }
+            }
+        
+    
+     

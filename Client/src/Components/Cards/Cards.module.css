@@ -12,6 +12,7 @@
     font-size: 30px;
     display: flex;
     justify-content: center;
+    text-transform: uppercase;
 }
 
 .button {
@@ -37,4 +38,53 @@
   -webkit-transition: all 0.25s;
   box-shadow: none;
   transform: scale(0.98);
+}
+
+
+
+@media (max-width: 860px) {
+  .title{
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 778px) {
+  .title{
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 650px) {
+  .title{
+    font-size: 19px;
+  }
+}
+
+
+
+@media (max-width: 530px) {
+  .title{
+    font-size: 17px;
+  }
+}
+
+@media (max-width:500px) {
+
+  .button {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 490px) {
+  .title{
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .title{
+    font-size: 12px;
+  }
 }
