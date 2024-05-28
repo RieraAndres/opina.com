@@ -42,4 +42,48 @@
     margin: 0;
 }
 
+@media (max-width: 550px) {
+    .title{
+      font-size: 25px;
+    }
+    .number{
+        font-size: 16px;
+    }
+  }
+  @media (max-width: 500px) {
+    .headerContainer{
+        padding-bottom: 30px;
+    }
+  }
+  
+
+
+  @media (max-width: 440px) {
+    .title{
+      font-size: 23px;
+    }
+    .number{
+        font-size: 14px;
+    }
+  }
+
+
+  @media (max-width: 400px) {
+    .title{
+      font-size: 20px;
+    }
+    .number{
+        font-size: 14px;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .title{
+      font-size: 18px;
+    }
+    .number{
+        font-size: 14px;
+    }
+  }
+
 
