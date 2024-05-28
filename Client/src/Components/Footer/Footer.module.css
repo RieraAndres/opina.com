@@ -28,3 +28,19 @@
     font-family: Jura;
     font-weight: 500;
 }
+
+
+@media (max-width: 500px) {
+    .nav{
+        flex-direction: column;
+        margin-left: 20px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .derechos{
+        margin-left: 20px;
+    }
+  }
+
+
