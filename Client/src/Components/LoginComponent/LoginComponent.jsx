@@ -12,7 +12,7 @@ function LoginComponent() {
     const adminEmail = process.env.REACT_APP_ADMIN_EMAIL
 
     useEffect(()=>{ //escuchara los cambios en adminLogin para navegar al dashboard una vez logueado con exito
-        if(adminLogin){
+        if(adminLogin.isLoggedIn){
           navigate("/admin") //correjir a ruta de adminDashboard
           }
         },[adminLogin,navigate])

@@ -19,7 +19,10 @@ let initialState = {
   responses: [],
   detail: {},
   notification: "",
-  adminLogin: false,
+  adminLogin: {
+    isLoggedIn: false,
+    timestamps: null,
+  },
   dataBase: [],
 };
 
@@ -46,7 +49,11 @@ export default function rootReducer(state = initialState, action) {
     case POSITIVE_CODE_VERIFICATION: {
       return {
         ...state,
-        adminLogin: true,
+        adminLogin: {
+          ...state.adminLogin,
+          isLoggedIn: true,
+          timestamps: Date.now(),
+        },
       };
     }
 
@@ -81,7 +88,11 @@ export default function rootReducer(state = initialState, action) {
     case CLOSE_SESSION: {
       return {
         ...state,
-        adminLogin: false,
+        adminLogin: {
+          ...state.adminLogin,
+          isLoggedIn: false,
+          timestamps: null,
+        },
       };
     }
 
