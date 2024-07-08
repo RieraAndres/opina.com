@@ -4,6 +4,7 @@ import Header from "../../Components/Header/Header"
 import { useEffect } from "react";
 import { useDispatch , useSelector } from "react-redux";
 import { getSurveys } from "../../Redux/Actions";
+import OldCards from "../../Components/OldCards/OldCards";
 
 
 function Home() {
@@ -14,11 +15,13 @@ function Home() {
 }, [dispatch]);
 
 const surveys = useSelector((state) => state.allSurveys.filter(survey => survey.status === true));
+const OldSurveys = useSelector((state)=> state.allSurveys.filter(survey => survey.status === false))
 
   return (
     <div>
       <Header></Header>
       <Cards surveys={surveys}></Cards>
+      <OldCards OldSurveys={OldSurveys}></OldCards>
       <Footer></Footer>
     </div>
   );

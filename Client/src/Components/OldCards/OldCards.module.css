@@ -1,0 +1,110 @@
+.buttonContainer{
+  display: flex;
+  justify-content: center;
+}
+.cardsContainer {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .oneitem {
+    grid-template-columns: 1fr;
+    justify-items: center
+  }
+  
+  .twoitems {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center
+  }
+  
+  .threeitems {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center
+  }
+  
+  .title{
+      font-family: Jura;
+      font-weight:900;
+      font-size: 30px;
+      display: flex;
+      justify-content: center;
+      text-transform: uppercase;
+  }
+  
+  .button {
+    padding: 12.5px 25px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #b33b2b;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    font-size: 15px;
+    width: 40%;
+  }
+  .button:hover {
+    background-color: #c24f40;
+    transform: scale(1.1);
+  }
+  
+  .button:active {
+    background-color: #cf3d3d;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+  }
+  
+  
+  
+  @media (max-width: 860px) {
+    .title{
+      font-size: 23px;
+    }
+  }
+  
+  @media (max-width: 778px) {
+    .title{
+      font-size: 21px;
+    }
+  }
+  
+  @media (max-width: 650px) {
+    .title{
+      font-size: 19px;
+    }
+  }
+  
+  
+  
+  @media (max-width: 538px) {
+    .title{
+      font-size: 17px;
+    }
+  }
+  
+  @media (max-width:500px) {
+  
+    .button {
+      padding: 10px 20px;
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 490px) {
+    .title{
+      font-size: 14px;
+    }
+  }
+  
+  
+  @media (max-width: 400px) {
+    .title{
+      font-size: 12px;
+    }
+  }
