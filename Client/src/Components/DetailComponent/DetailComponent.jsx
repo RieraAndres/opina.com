@@ -86,7 +86,7 @@ function DetailComponent({survey}) {
             <input type="number" name="dni" value={input.dni} className={styles.input} onChange={handleInputChange}/>
           </div>
           {errors.dni && <label className={styles.error}>{errors.dni}</label>}
-          <label className={styles.label}>Telefono</label>
+          <label className={styles.label}>Celular</label>
           <div>
             <input name="whatsapp" type="number" value={input.whatsapp} placeholder="Cod.Area + Numero sin 15" className={styles.input} onChange={handleInputChange}/>
           </div>
@@ -95,7 +95,7 @@ function DetailComponent({survey}) {
         </div>
       </div>
       <div className={styles.description}>
-        <p className={styles.pq}>¿Por dejar tu firma?</p>
+        <p className={styles.pq}>¿Por qué dejar tu firma?</p>
         <p>{survey.description}</p>
       </div>
     </div>

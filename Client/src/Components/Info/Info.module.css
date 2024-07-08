@@ -76,3 +76,33 @@
 .valoresText{
     font-family: Jura;
 }
+
+
+@media (max-width: 650px) {
+  
+    .welcome p {
+        font-size: 14px;
+    }
+    .misionText{
+        font-size: 14px;
+    }
+    .subtitle{
+        font-size: 19px;
+    }
+    .valoresText{
+        font-size: 14px;
+    }
+    
+      }
+
+      @media (max-width: 590px) {
+        .flyer p {
+            font-size: 35px;
+        }
+      }
+
+      @media (max-width: 450px) {
+        .flyer p {
+            font-size: 30px;
+        }
+      }
