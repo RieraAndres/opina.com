@@ -22,13 +22,13 @@ const basename = path.basename(__filename);
 const modelDefiners = [];
 
 // Cargar todos los modelos definidos en el directorio 'models'
-fs.readdirSync(path.join(__dirname, "models"))
+fs.readdirSync(path.join(__dirname, "Models"))
   .filter(
     (file) =>
       file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
   )
   .forEach((file) => {
-    const model = require(path.join(__dirname, "models", file));
+    const model = require(path.join(__dirname, "Models", file));
     model(sequelize);
   });
 
