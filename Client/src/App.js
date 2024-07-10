@@ -12,7 +12,7 @@ import axios from "axios";
 
 //  axios.defaults.baseURL = "http://localhost:3001";
 
-axios.defaults.baseURL = "https://henrypf-production.up.railway.app/";
+axios.defaults.baseURL = "opinacom-production.up.railway.app";
 
 function App() {
   const adminLogin = useSelector((state) => state.adminLogin);
