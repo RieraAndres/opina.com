@@ -8,11 +8,6 @@ import Admin from "./Views/Admin/Admin";
 import AdminDetail from "./Views/AdminDetail/AdminDetail";
 import Create from "./Views/Create/Create";
 import { useSelector } from "react-redux";
-import axios from "axios";
-
-//  axios.defaults.baseURL = "http://localhost:3001";
-
-axios.defaults.baseURL = "opinacom-production.up.railway.app";
 
 function App() {
   const adminLogin = useSelector((state) => state.adminLogin);

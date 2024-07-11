@@ -8,6 +8,11 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./Redux/Store";
 
+import axios from "axios";
+
+//  axios.defaults.baseURL = "http://localhost:3001";
+
+axios.defaults.baseURL = "opinacom-production.up.railway.app";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>

@@ -19,7 +19,7 @@ export const DELETE_SURVEY = "DELETE_SURVEY";
 export function getSurveys() {
   return async function (dispatch) {
     try {
-      const response = await axios("http://localhost:3001/survey/all"); //traigo SURVEYS
+      const response = await axios("/survey/all"); //traigo SURVEYS
       return dispatch({
         type: "GET_SURVEYS",
         payload: response.data,
@@ -33,7 +33,7 @@ export function getSurveys() {
 export function getDetail(id) {
   return async function (dispatch) {
     try {
-      const response = await axios(`http://localhost:3001/survey/${id}`);
+      const response = await axios(`/survey/${id}`);
       return dispatch({
         type: "GET_DETAIL",
         payload: response.data,
@@ -48,7 +48,7 @@ export function postResponse({ name, lastName, dni, whatsapp, surveyId }) {
   return async function (dispatch) {
     try {
       const response = await axios.post(
-        "http://localhost:3001/response/postResponse",
+        "/response/postResponse",
         { name, lastName, dni, whatsapp, surveyId } // envolver input en un objeto con clave 'data'
       );
       if (response.status === 201 || response.status === 200) {
@@ -69,7 +69,7 @@ export function postResponse({ name, lastName, dni, whatsapp, surveyId }) {
 export function sendCode() {
   return async function (dispatch) {
     try {
-      await axios.post("http://localhost:3001/user/sendCode");
+      await axios.post("/user/sendCode");
     } catch (error) {
       return error.message;
     }
@@ -79,7 +79,7 @@ export function sendCode() {
 export function verifyCode(userCode) {
   return async function (dispatch) {
     try {
-      const response = await axios.post("http://localhost:3001/user/verify", {
+      const response = await axios.post("/user/verify", {
         userCode,
       });
       if (response.status === 400) {
@@ -102,7 +102,7 @@ export function verifyCode(userCode) {
 export function changeSurveyStatus(id) {
   return async function (dispatch) {
     try {
-      const response = await axios.put("http://localhost:3001/survey/status", {
+      const response = await axios.put("/survey/status", {
         id,
       });
     } catch (error) {
@@ -114,9 +114,7 @@ export function changeSurveyStatus(id) {
 export function getSurveyResponses(surveyId) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/survey/responses/${surveyId}`
-      );
+      const response = await axios.get(`/survey/responses/${surveyId}`);
       return dispatch({
         type: "GET_SURVEY_RESPONSES",
         payload: response.data,
@@ -130,7 +128,7 @@ export function getSurveyResponses(surveyId) {
 export function getDataBase() {
   return async function (dispatch) {
     try {
-      const response = await axios.get("http://localhost:3001/user/getAll");
+      const response = await axios.get("/user/getAll");
       return dispatch({
         type: "GET_DATABASE",
         payload: response.data,
@@ -144,7 +142,7 @@ export function getDataBase() {
 export function postSurvey(title, description, imgUrl) {
   return async function (dispatch) {
     try {
-      const response = await axios.post("http://localhost:3001/survey", {
+      const response = await axios.post("/survey", {
         title,
         description,
         imgUrl,
@@ -162,9 +160,7 @@ export function postSurvey(title, description, imgUrl) {
 export function deleteSurvey(surveyId) {
   return async function (dispatch) {
     try {
-      const response = await axios.delete(
-        `http://localhost:3001/survey/delete/${surveyId}`
-      );
+      const response = await axios.delete(`/survey/delete/${surveyId}`);
       return dispatch({
         type: "DELETE_SURVEY",
         payload: response.data,
