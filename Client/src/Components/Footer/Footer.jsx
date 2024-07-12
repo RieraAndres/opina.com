@@ -12,7 +12,7 @@ function Footer() {
             <NavLink to="/adminlogin" style={{textDecoration:"none"}}><p>ADMIN</p></NavLink>
         </div>
         <div className={styles.derechos}>
-            <p>© 2024, Opina.com todos los derechos reservados</p>
+            <p>© 2024, opina.net.ar todos los derechos reservados</p>
         </div>
      </div>
   );
