@@ -6,7 +6,8 @@ const createSurveyResponse = async (
   lastName,
   dni,
   whatsapp,
-  surveyId
+  surveyId,
+  agreed
 ) => {
   try {
     // Buscar el usuario en la base de datos
@@ -23,6 +24,7 @@ const createSurveyResponse = async (
     const response = await Response.create({
       SurveyId: surveyId,
       UserId: user.id,
+      agreed: agreed,
     });
 
     return response;

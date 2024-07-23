@@ -1,9 +1,9 @@
 const postResponse = require("../Controllers/CrudResponse/postResponse");
 
 const handlerPostResponse = async (req, res) => {
-  const { name, lastName, dni, whatsapp, surveyId } = req.body;
+  const { name, lastName, dni, whatsapp, surveyId, agreed } = req.body;
   try {
-    if (!name || !lastName || !dni || !whatsapp || !surveyId) {
+    if (!name || !lastName || !dni || !whatsapp || !surveyId || !agreed) {
       return res.status(400).json({
         error:
           "Revise los campos nuevamente y verifique que todo esté correcto",
@@ -14,7 +14,8 @@ const handlerPostResponse = async (req, res) => {
         lastName,
         dni,
         whatsapp,
-        surveyId
+        surveyId,
+        agreed
       );
 
       if (postResponseR.error) {

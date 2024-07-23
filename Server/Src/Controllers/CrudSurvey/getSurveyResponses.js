@@ -20,6 +20,7 @@ async function getSurveyResponses(surveyId) {
       lastName: response.User.lastName,
       dni: response.User.dni,
       whatsapp: response.User.whatsapp,
+      agreed: response.agreed,
     }));
 
     return {

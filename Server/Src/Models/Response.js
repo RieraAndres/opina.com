@@ -9,6 +9,12 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
+      agreed: {
+        type: DataTypes.ENUM,
+        values: ["si", "no"],
+        allowNull: false,
+        defaultValue: "no", // Valor por defecto
+      },
     },
     {
       timestamps: false,
