@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const adminLogin = useSelector((state) => state.adminLogin);
-  console.log(adminLogin);
   return (
     <div>
       <Routes>

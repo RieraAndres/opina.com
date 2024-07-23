@@ -98,6 +98,96 @@
     font-weight: bold;
   }
 
+  .clear {
+    clear: both;
+  }
+  
+  .agree{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .agreesino{
+    font-family: Jura;
+    font-weight: bold;
+    margin-left: 7px;
+  }
+  .checkBoxSi {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 2px #000000;
+  }
+  
+  .checkBoxSi div {
+    width: 60px;
+    height: 60px;
+    background-color: lime;
+    top: -52px;
+    left: -52px;
+    position: absolute;
+    transform: rotateZ(45deg);
+    z-index: 100;
+  }
+  
+  .checkBoxSi input[type="checkbox"]:checked + div {
+    left: -10px;
+    top: -10px;
+  }
+  
+  .checkBoxSi input[type="checkbox"] {
+    position: absolute;
+    left: 50px;
+    visibility: hidden;
+  }
+  
+  .transitionSi {
+    transition: 300ms ease;
+  }
+  
+
+  .checkBoxNo {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 2px #000000;
+  }
+  
+  .checkBoxNo div {
+    width: 60px;
+    height: 60px;
+    background-color: rgb(231, 6, 6);
+    top: -52px;
+    left: -52px;
+    position: absolute;
+    transform: rotateZ(45deg);
+    z-index: 100;
+  }
+  
+  .checkBoxNo input[type="checkbox"]:checked + div {
+    left: -10px;
+    top: -10px;
+  }
+  
+  .checkBoxNo input[type="checkbox"] {
+    position: absolute;
+    left: 50px;
+    visibility: hidden;
+  }
+  
+  .transitionNo {
+    transition: 300ms ease;
+  }
 
   @media (max-width: 750px) {
     .title{

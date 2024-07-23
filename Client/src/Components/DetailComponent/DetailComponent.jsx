@@ -17,7 +17,8 @@ function DetailComponent({survey}) {
     lastName: "",
     dni: "",
     whatsapp: "",
-    surveyId: id
+    surveyId: id,
+    agreed:"si"
   });
 
   const [errors, setErrors] = useState({});
@@ -52,17 +53,38 @@ function DetailComponent({survey}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.name && input.lastName && input.dni && input.whatsapp) {
-      dispatch(postResponse(input));
+  
+    // Siempre agregar el prefijo "549" al número de WhatsApp
+    const whatsappWithPrefix = `549${input.whatsapp}`;
+  
+    if (input.name && input.lastName && input.dni && whatsappWithPrefix && input.agreed) {
+      // Actualizar el estado con el número de WhatsApp con prefijo
+      const updatedInput = { ...input, whatsapp: whatsappWithPrefix };
+  
+      dispatch(postResponse(updatedInput));
       setInput({
         name: "",
         lastName: "",
         dni: "",
         whatsapp: "",
-        surveyId: id
+        surveyId: id,
+        agreed: ""
       });
     }
   };
+
+  const [isChecked, setIsChecked] = useState({ ch1: true, ch2: false }); //Controlador de las checkboxes
+
+  const handleCheckboxChange = (id) => {
+    if (id === "ch1") {
+      setIsChecked({ ch1: true, ch2: false });
+      setInput(prevInput => ({ ...prevInput, agreed: "si" }));
+    } else {
+      setIsChecked({ ch1: false, ch2: true });
+      setInput(prevInput => ({ ...prevInput, agreed: "no" }));
+    }
+  };
+
 
   return (
     <div className={styles.detailContainer}>
@@ -91,6 +113,33 @@ function DetailComponent({survey}) {
             <input name="whatsapp" type="number" value={input.whatsapp} placeholder="Cod.Area + Numero sin 15" className={styles.input} onChange={handleInputChange}/>
           </div>
           {errors.whatsapp && <label className={styles.error}>{errors.whatsapp}</label>}
+          <label className={styles.label}>¿Estas de acuerdo?</label>
+          <div className={styles.agree}>
+      <div className={styles.contentSi}>
+        <label className={styles.agreesino}>Sí</label>
+        <label className={styles.checkBoxSi}>
+          <input
+            type="checkbox"
+            id="ch1"
+            checked={isChecked.ch1}
+            onChange={() => handleCheckboxChange("ch1")}
+          />
+          <div className={styles.transitionSi}></div>
+        </label>
+      </div>
+      <div className={styles.contentNo}>
+        <label className={styles.agreesino}>No</label>
+        <label className={styles.checkBoxNo}>
+          <input
+            type="checkbox"
+            id="ch2"
+            checked={isChecked.ch2}
+            onChange={() => handleCheckboxChange("ch2")}
+          />
+          <div className={styles.transitionNo}></div>
+        </label>
+      </div>
+    </div>
           <button><span className={styles.buttonTop} onClick={handleSubmit}>Enviar</span></button>
         </div>
       </div>

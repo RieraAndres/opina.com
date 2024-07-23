@@ -44,12 +44,19 @@ export function getDetail(id) {
   };
 }
 
-export function postResponse({ name, lastName, dni, whatsapp, surveyId }) {
+export function postResponse({
+  name,
+  lastName,
+  dni,
+  whatsapp,
+  surveyId,
+  agreed,
+}) {
   return async function (dispatch) {
     try {
       const response = await axios.post(
         "/response/postResponse",
-        { name, lastName, dni, whatsapp, surveyId } // envolver input en un objeto con clave 'data'
+        { name, lastName, dni, whatsapp, surveyId, agreed } // envolver input en un objeto con clave 'data'
       );
       if (response.status === 201 || response.status === 200) {
         return dispatch({

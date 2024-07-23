@@ -17,6 +17,7 @@ function ResponsesTable({ responses }) {
         { label: 'Apellido', key: 'lastName' },
         { label: 'DNI', key: 'dni' },
         { label: 'Teléfono', key: 'whatsapp' },
+        { label: 'De acuerdo', key:'agreed'}
     ];
 
     // Formatear los datos para el CSV
@@ -25,6 +26,7 @@ function ResponsesTable({ responses }) {
         lastName: user.lastName,
         dni: user.dni,
         whatsapp: user.whatsapp,
+        agreed: user.agreed
     }));
 
     // Configuración del reporte CSV
@@ -47,6 +49,7 @@ function ResponsesTable({ responses }) {
                             <th className={styles.celda}>Apellido</th>
                             <th className={styles.celda}>DNI</th>
                             <th className={styles.celda}>Whatsapp</th>
+                            <th className={styles.celda}>De acuerdo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,6 +59,7 @@ function ResponsesTable({ responses }) {
                                 <td className={styles.celda}>{user.lastName}</td>
                                 <td className={styles.celda}>{user.dni}</td>
                                 <td className={styles.celda}>{user.whatsapp}</td>
+                                <td className={styles.celda}>{user.agreed}</td>
                             </tr>
                         ))}
                     </tbody>
