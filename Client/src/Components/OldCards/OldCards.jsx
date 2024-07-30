@@ -6,7 +6,6 @@ import { useState } from 'react';
 function OldCards({OldSurveys}) {
     
     const [visibleCards, setVisibleCards] = useState(3); // Mostrar inicialmente 4 tarjetas
-    console.log(OldSurveys.length);
     const handleShowMore = () => {
     setVisibleCards(visibleCards + 3); // Mostrar 4 tarjetas adicionales al hacer clic en "Ver más"
     };
