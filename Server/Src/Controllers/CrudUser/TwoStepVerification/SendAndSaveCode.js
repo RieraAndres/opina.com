@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 const { EmailCode } = require("../../../db");
-const { EMAIL_PASSWORD, ADMIN_EMAIL } = process.env;
+const { EMAIL_PASSWORD, ADMIN_EMAIL, ADMIN_USER_EMAIL } = process.env;
 
 const SendAndSaveCode = async (generatedCode) => {
   try {
@@ -25,7 +25,7 @@ const SendAndSaveCode = async (generatedCode) => {
     // Configuramos las opciones del correo con el código generado
     const mailOptions = {
       from: ADMIN_EMAIL,
-      to: ADMIN_EMAIL,
+      to: ADMIN_USER_EMAIL,
       subject: "Tu código para ingresar a Opina.com",
       text: `Hola! Tu código para ingresar a Opina.com es: ${generatedCode}`,
     };
