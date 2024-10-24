@@ -45,6 +45,7 @@ function LoginComponent() {
     }
 
     const handleUserSubmit = (e)=>{ //verifica usuario y contraseña
+
       e.preventDefault()
       if(input.email === adminEmail && input.password === adminPassword){
         setShowLogin(false)
