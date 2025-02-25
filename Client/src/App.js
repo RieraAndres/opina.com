@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./Views/Home/Home";
+import PrivPol from "./Views/PrivPol/PrivPol";
 import About from "./Views/About/About";
 import Detail from "./Views/Detail/Detail";
 import Login from "./Views/Login/Login";
@@ -15,6 +16,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/politicas-de-privacidad" element={<PrivPol />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />}></Route>
         <Route path="/adminlogin" element={<Login />}></Route>

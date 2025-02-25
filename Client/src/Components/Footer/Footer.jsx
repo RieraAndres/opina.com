@@ -9,7 +9,6 @@ function Footer() {
             <NavLink to="/about" style={{textDecoration:"none"}}><p>SOBRE OPINA.NET</p></NavLink>
             <NavLink to="/about" style={{textDecoration:"none"}}><p>PRIVACIDAD</p></NavLink>
             <NavLink to="/about" style={{textDecoration:"none"}}><p>IMPACTO</p></NavLink>
-            <NavLink to="/adminlogin" style={{textDecoration:"none"}}><p>ADMIN</p></NavLink>
         </div>
         <div className={styles.derechos}>
             <p>© 2024, opina.net.ar todos los derechos reservados</p>
